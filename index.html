@@ -1,471 +1,559 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kuesioner | Pkm Trenggalek</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kuesioner Kepuasan Kerja | Puskesmas Trenggalek</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #f8f9fa;
+        font-family: "Inter", sans-serif;
+        padding-top: 90px;
+      }
+
+      .navbar {
+        background: linear-gradient(90deg, #007b5e, #00a77b);
+      }
+
+      .navbar-brand h2 {
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+
+      .card {
+        border: none;
+        border-radius: 1rem;
+      }
+
+      .card-body h4,
+      h6 {
+        color: #007b5e;
+        font-weight: 600;
+      }
+
+      label.form-label {
+        font-weight: 500;
+        color: #333;
+      }
+
+      select.form-select,
+      input.form-control,
+      textarea.form-control {
+        border-radius: 0.5rem;
+      }
+
+      .btn {
+        border-radius: 0.5rem;
+        font-weight: 500;
+      }
+
+      .btn-outline-success {
+        color: #00a77b;
+        border-color: #00a77b;
+      }
+
+      .btn-outline-success:hover {
+        background-color: #00a77b;
+        color: #fff;
+      }
+
+      footer {
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+      .section-title {
+        background: #e9f9f1;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        color: #007b5e;
+        display: inline-block;
+      }
+
+      .question {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: #fff;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-section {
+        margin-bottom: 2rem;
+      }
+
+      .required:after {
+        content: "*";
+        color: red;
+        margin-left: 3px;
+      }
+    </style>
+  </head>
   <body>
-    <div class="container">
-        <div class="container">
-            <nav class="navbar bg-light shadow fixed-top opacity-100">
-                <div class="container">
-                  <a class="navbar-brand text-wrap text-center" href="#">
-                    <h2 class="text-center">KUESIONER KEPUASAN KERJA PEGAWAI PUSKESMAS TRENGGALEK TAHUN 2024</h2>
-                  </a>
-                </div>
-            </nav>  
+    <!-- Navbar -->
+    <nav class="navbar shadow-sm fixed-top">
+      <div class="container text-center">
+        <a class="navbar-brand mx-auto" href="#">
+          <h2>
+            <img
+              src="pkmlogo.png"
+              width="200"
+              alt="Logo Puskesmas"
+              class="mb-2"
+            />
+          </h2>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <div class="text-center my-3">
+        <p class="text-muted">
+          Silakan isi kuesioner berikut dengan jujur sesuai kondisi yang Anda
+          rasakan.
+        </p>
+      </div>
+
+      <div class="card shadow-sm mb-5">
+        <div class="card-body">
+          <h4>Identitas Responden</h4>
+          <hr />
+          <form
+            name="submit-to-google-sheet"
+            class="needs-validation"
+            novalidate
+          >
+            <!-- IDENTITAS -->
+            <div class="form-section">
+              <div class="mb-3">
+                <label class="form-label required">Nama</label>
+                <input
+                  type="text"
+                  name="nama"
+                  class="form-control"
+                  placeholder="Masukkan nama lengkap"
+                  style="text-transform: capitalize"
+                  required
+                />
+                <div class="invalid-feedback">Nama wajib diisi.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label required">Tempat Tugas</label>
+                <input
+                  type="text"
+                  name="tempatkerja"
+                  class="form-control"
+                  placeholder="Masukkan tempat tugas"
+                  style="text-transform: capitalize"
+                  required
+                />
+                <div class="invalid-feedback">Tempat tugas wajib diisi.</div>
+              </div>
+            </div>
+
+            <!-- RUANG KERJA -->
+            <div class="form-section">
+              <span class="section-title">Ruang Kerja</span>
+              <div class="question mt-3">
+                <label class="form-label required"
+                  >1. Apakah Anda puas terhadap kebersihan ruangan kerja
+                  Anda?</label
+                >
+                <select name="1" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >2. Apakah Anda puas terhadap kebersihan kamar
+                  mandi/WC?</label
+                >
+                <select name="2" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >3. Apakah Anda puas pada pencahayaan di ruang kerja
+                  Anda?</label
+                >
+                <select name="3" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >4. Apakah Anda puas dengan sirkulasi udara di ruang kerja
+                  Anda?</label
+                >
+                <select name="4" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >5. Apakah Anda puas pada tata letak ruang kerja Anda saat
+                  ini?</label
+                >
+                <select name="5" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- FASILITAS -->
+            <div class="form-section">
+              <span class="section-title">Fasilitas</span>
+              <div class="question mt-3">
+                <label class="form-label required"
+                  >6. Apakah Anda puas dengan sarana yang digunakan dalam
+                  bekerja saat ini?</label
+                >
+                <select name="6" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >7. Apakah Anda puas tentang kemudahan dalam mengusulkan
+                  sarpras untuk mendukung kinerja?</label
+                >
+                <select name="7" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- GAJI -->
+            <div class="form-section">
+              <span class="section-title">Gaji / Kompensasi</span>
+              <div class="question mt-3">
+                <label class="form-label required"
+                  >8. Apakah Anda puas dengan gaji dan/atau tunjangan yang
+                  diterima saat ini?</label
+                >
+                <select name="8" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >9. Apakah Anda puas dengan ketepatan waktu pembayaran gaji
+                  Anda?</label
+                >
+                <select name="9" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >10. Apakah Anda puas dengan jaspel/TPP yang Anda
+                  terima?</label
+                >
+                <select name="10" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >11. Apakah Anda puas dengan penghargaan atas prestasi kerja
+                  yang Anda capai?</label
+                >
+                <select name="11" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >12. Apakah Anda puas terhadap kesempatan mengikuti pelatihan
+                  yang adil dan memuaskan?</label
+                >
+                <select name="12" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >13. Apakah Anda puas tentang kemudahan pengajuan cuti
+                  pegawai?</label
+                >
+                <select name="13" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- SIFAT PEKERJAAN -->
+            <div class="form-section">
+              <span class="section-title">Sifat Pekerjaan</span>
+              <div class="question mt-3">
+                <label class="form-label required"
+                  >14. Apakah Anda merasa puas dengan pekerjaan Anda saat
+                  ini?</label
+                >
+                <select name="14" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >15. Apakah Anda puas dengan jam kerja saat ini?</label
+                >
+                <select name="15" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >16. Apakah Anda puas dengan prestasi yang telah dicapai
+                  selama ini?</label
+                >
+                <select name="16" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >17. Apakah Anda puas dengan status jabatan Anda saat
+                  ini?</label
+                >
+                <select name="17" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- ATASAN -->
+            <div class="form-section">
+              <span class="section-title">Atasan</span>
+              <div class="question mt-3">
+                <label class="form-label required"
+                  >18. Apakah Anda puas terhadap komunikasi antara Anda dan
+                  atasan?</label
+                >
+                <select name="18" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >19. Apakah Anda puas terhadap arahan, bimbingan, dan
+                  pembinaan atasan?</label
+                >
+                <select name="19" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >20. Apakah Anda puas terhadap kemampuan dan kemudahan atasan
+                  dalam pengambilan keputusan?</label
+                >
+                <select name="20" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >21. Apakah Anda puas dengan kinerja atasan?</label
+                >
+                <select name="21" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- REKAN KERJA -->
+            <div class="form-section">
+              <span class="section-title">Rekan Kerja</span>
+              <div class="question mt-3">
+                <label class="form-label required"
+                  >22. Apakah Anda puas terhadap peranan rekan kerja dalam
+                  mendukung kesuksesan pekerjaan Anda?</label
+                >
+                <select name="22" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+              <div class="question">
+                <label class="form-label required"
+                  >23. Apakah Anda puas terhadap kerjasama antar rekan kerja di
+                  tempat Anda?</label
+                >
+                <select name="23" class="form-select" required>
+                  <option value="">Pilih jawaban</option>
+                  <option value="Tidak Puas">Tidak Puas</option>
+                  <option value="Kurang Puas">Kurang Puas</option>
+                  <option value="Puas">Puas</option>
+                  <option value="Sangat Puas">Sangat Puas</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-section">
+              <span class="section-title">Kritik</span>
+              <div class="question mt-3">
+                <textarea name="Kritik" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-section">
+              <span class="section-title">Saran</span>
+              <div class="question mt-3">
+                <textarea name="Saran" class="form-control"></textarea>
+              </div>
+            </div>
+            <!-- //submit button -->
+            <div class="text-center mt-4">
+              <!-- Tombol Kirim -->
+              <button type="submit" class="btn btn-success btn-kirim px-5 py-2">
+                <i class="bi bi-send"></i> Kirim Jawaban
+              </button>
+
+              <!-- Tombol Loading -->
+              <button
+                class="btn btn-success btn-loading px-5 py-2 d-none"
+                type="button"
+                disabled
+              >
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Mengirim...
+              </button>
+            </div>
+          </form>
         </div>
-        
-        <br><p class="text-white mt-2">asdasdasdasdasdasdasd</p>
-        <p class="text-white">asdasdasdasdasdasdasd</p><br>
-         <!-- <div class="card  shadow">
-             <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <img src="pkmlogo.png" width="250" alt="logo-pkm">
-                    </div>
-                    <div class="col text-end">
-                        <p><?php echo date('l, d-m-Y  h:i:s a');?></p>
-                    </div>
-                </div>
-                
-            </div>
-         </div> -->
-         <img src="pkmlogo.png" width="250" alt="logo-pkm">
-        <div class="card shadow-lg mt-4">
-            <div class="card-body">
-                <h4>Identitas Responden</h4><hr>
-                <div class="container">
-                <form  name="submit-to-google-sheet" >
-                    <!-- class="needs-validation" -->
-                    <div class="mb-3 row">
-                        <label  class="col-sm-2 col-form-label text-danger">Nama*</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nama" class="form-control" style="text-transform:capitalize" id="staticEmail" required >
-                            <div class="invalid-feedback">
-                                *Nama tidak boleh kosong!
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label text-danger">Tempat Tugas*</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="tempatkerja" style="text-transform:capitalize" class="form-control" id="inputPassword" required>
-                            <div class="invalid-feedback">
-                                *Tempat Tugas tidak boleh kosong!
-                              </div>
-                        </div>
-                    </div><hr>
-                    <strong><h6>Ruang Kerja</h6></strong>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">1. Apakah anda puas terhadap kebersihan ruangan kerja anda?*</label>
-                        <div class="col-sm">
-                            <select name="1" class="form-select" id="" required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">2. Apakah anda puas terhadap Kebersihan kamar mandi/wc?*</label>
-                        <div class="col-sm">
-                            <select name="2" class="form-select" id="" required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">3. Apakah anda puas pada Pencahayaan di ruang kerja anda ?*</label>
-                        <div class="col-sm">
-                            <select name="3" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">4. Apakah anda puas dengan sirkulasi udara di ruang kerja anda ?*</label>
-                        <div class="col-sm">
-                            <select name="4" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">5. Apakah anda puas pada tata letak ruang kerja anda saat ini ?*</label>
-                        <div class="col-sm">
-                            <select name="5" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <hr><h6>FASILITAS</h6>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">6. Apakah anda puas dengan sarana yang anda gunakan dalam bekerja saat ini ?*</label>
-                        <div class="col-sm">
-                            <select name="6" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">7. Apakah anda merasa puas tentang kemudahan dalam mengusulkan sarpras untuk mendukung kinerja ?*</label>
-                        <div class="col-sm">
-                            <select name="7" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div><hr><h6>GAJI/KOMPENSASI</h6>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">8. Apakah anda puas dengan gaji dan / tunjangan yang diterima saat ini?*</label>
-                        <div class="col-sm">
-                            <select name="8" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">9. Apakah anda puas dengan ketepatan waktu pembayaran gaji anda?*</label>
-                        <div class="col-sm">
-                            <select name="9" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">10. Apakah anda puas dengan jaspel / TPP yang anda terima?*</label>
-                        <div class="col-sm">
-                            <select name="10" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">11. Apakah anda puas dengan penghargaan yang diberikan atas prestasi kerja yang anda capai?*</label>
-                        <div class="col-sm">
-                            <select name="11" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">12. Apakah anda puas bahwa kesempatan yang diberikan pimpinan untuk mengikuti pendidikan dan pelatihan cukup adil dan memuaskan?*</label>
-                        <div class="col-sm">
-                            <select name="12" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">13. Apakah anda puas tentang pengajuan cuti pegawai yang mudah*</label>
-                        <div class="col-sm">
-                            <select name="13" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <h6>SIFAT PEKERJAAN</h6><hr>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">14. Apakah anda merasa puas dengan pekerjaan anda saat ini*</label>
-                        <div class="col-sm">
-                            <select name="14" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">15. Puaskah anda dengan jam kerja yang anda lakukan saat ini*</label>
-                        <div class="col-sm">
-                            <select name="15" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">16. Apakah anda sudah puas dengan prestasi yang telah anda capai selama ini?*</label>
-                        <div class="col-sm">
-                            <select name="16" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">17. Apakah anda puas dengan status jabatan yang anda miliki sebagai karyawan di tempat ini?*</label>
-                        <div class="col-sm">
-                            <select name="17" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <h6>ATASAN</h6><hr>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">18. Apakah anda puas saat komunikasi antara anda dengan atasan anda?*</label>
-                        <div class="col-sm">
-                            <select name="18" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>
-                               
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">19. Apakah anda puas dengan arahan, bimbingan dan pembinaan atasan terhadap anda?*</label>
-                        <div class="col-sm">
-                            <select name="19" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>  
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">20. Apakah anda puas terhadap kemampuan dan kemudahan dalam pengambilan keputusan atasan?*</label>
-                        <div class="col-sm">
-                            <select name="20" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>  
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">21. Apakah anda puas dengan kinerja atasan?*</label>
-                        <div class="col-sm">
-                            <select name="21" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>  
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <h6>REKAN KERJA</h6><hr>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">22. Apakah anda merasa puas terhadap peranan rekan sekerja anda dalam mendorong kesuksesan pekerjaan anda?*</label>
-                        <div class="col-sm">
-                            <select name="22" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>  
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">23. Apakah anda puas dengan rekan kerja anda dapat menciptakan suasana yang harmonis dalam bekerja?*</label>
-                        <div class="col-sm">
-                            <select name="23" class="form-select" id=""required>
-                                <option value="">Choose one</option>
-                                <option value="Tidak Puas">Tidak Puas</option>
-                                <option value="Kurang Puas">Kurang Puas</option>
-                                <option value="Puas">Puas</option>
-                                <option value="Sangat Puas">Sangat Puas</option>  
-                            </select>
-                            <div class="invalid-feedback">                                   
-                                *Please select a valid state.
-                              </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">Kritik</label>
-                        <div class="col-sm">
-                            <textarea name="Kritik" class="form-control" ></textarea>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label  class="col-sm-5 col-form-label">Saran</label>
-                        <div class="col-sm">
-                            <textarea name="Saran" class="form-control" ></textarea>
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-outline-success btn-kirim" >Submit</button>
-                        <button class="btn btn-outline-success btn-loading d-none" type="button" disabled>
-                            <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
-                            Loading...
-                        </button>
-                    </div>
-                </form>
-            </div>
-            </div>
-                
-        </div>
-        <br>
-              <footer class="mt-2 mb-2 text-center">
-                <h9>Puskesmas Trenggalek | <small>@2024</small></h9>
-                <br>
-              </footer>  
+      </div>
+
+      <footer class="text-center mt-4 mb-3">
+        <p>
+          © 2025 Puskesmas Trenggalek | Dikelola oleh Tim Mutu & SDM |
+          <small>@Yoga</small>
+        </p>
+      </footer>
     </div>
-   
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (() => {
+        "use strict";
+        const forms = document.querySelectorAll(".needs-validation");
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="myscript.js"></script>
-    
-</body>
-</html> 
-<script>
-    
-</script>
+  </body>
+</html>
